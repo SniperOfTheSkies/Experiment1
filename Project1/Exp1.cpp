@@ -1,31 +1,27 @@
-#include <iostream> 
-#include <conio.h> 
+#include <iomanip>
+#include <iostream>
 
 using namespace std;
 
-int Density(int a, int b) 
+int main()
+{
+	double netBalance, d1, payment, interest, d2, monthlyInterestRate, averageDailyBalance;
 
-{ 
-	int r; 
-	r = (a/(4*b)); 
-	return r; 
-}
+	cout << setprecision(2) << fixed << showpoint;
+	cout << "Enter net Balance: ";
+	cin >> netBalance;
+	cout << "Enter payment made: ";
+	cin >> payment;
+	cout << "Enter number of days in the billing cycle: ";
+	cin >> d1;
+	cout << "Enter number of days payment is made before billing cycle: ";
+	cin >> d2;
+	cout << "Enter interest per month: ";
+	cin >> monthlyInterestRate;
 
-int main() 
+	averageDailyBalance = (netBalance * d1 - payment * d2) / d1;
+	interest = averageDailyBalance * monthlyInterestRate;
 
-{ 
-	int x, y{}, z;
-	cout << "Volume Calculator" << endl;
-	cout << "Input mass in grams: "; cin >> x; 
-	cout << x << "g";
-	cout << "Input density in grams/(m^3)"; cin >> y;
-	cout << y << "g/(m^3)"<<endl;
-	
-z = Density(x, y); 
-
-cout << "The volume is " << z; 
-
-_getch();
-
-return 0; 
+	cout << endl << "Interest is " << interest << endl;
+	return 0;
 }
